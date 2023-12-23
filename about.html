@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Ethnic Racism and Maternal Health</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1 id="website-title">
+                Teenage Pregnancy in the USA</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+        <iframe id="visualize_all" src="Visualize_all.html" frameborder="0"></iframe>
+
+        <div class="scroll-top"> <!--scrollbar at the end of main-->
+            <a class="scroll-top__link" href="#">^</a> <!--href="#" navigates to the top of the page-->
+        </div>
+
+    </main>
+    <div class="footer">
+        <p>© Copyright reserved. Created by <i>WiJuBe</i></p>
+    </div>
+    <script>
+        // Function to set iframe height based on its content
+        function resizeIframe() {
+          var iframe = document.getElementById('visualize_all');
+          if (iframe) {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+          }
+        }
+    
+        // Adjust iframe height when the content loads (assuming content loaded from the same domain)
+        document.getElementById('visualize_all').onload = resizeIframe;
+    
+        // Optional: Listen for window resize events to adjust the iframe height dynamically
+        window.addEventListener('resize', resizeIframe);
+      </script>
+</body>
+
+</html>
