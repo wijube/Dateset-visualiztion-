@@ -29,14 +29,7 @@ header {
     font: normal 50px 'Playfair Display SC', serif;
     text-align:center;
 }
-#website-title-child {
-    font: normal 25px 'Playfair Display SC', serif;
-    text-align:center;
-}
-#content-title {
-    font: normal 50px serif;
-    text-align: left;
-}
+
 nav {
     max-width: 800px;
     margin: auto;
@@ -87,10 +80,6 @@ iframe {
     width: 100%;
     border: none;
 }
-
-#image-container {
-    text-align: center;
-}
 #text-container {
     text-align: center;
     padding: 15px;
@@ -98,13 +87,6 @@ iframe {
 #main-container {
     display: contents;
 }
-#image-container img {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 50%;
-    margin-top: 100px;
-}
-
 #text-title {
     font-size: 25px;
     padding: 5px;
@@ -122,22 +104,6 @@ iframe {
 #main-text p {
     padding: 5px;
 }
-
-#stakeholder {
-    display: flex;
-}
-#stakeholder img {
-    height: fit-content;
-    width: fit-content;
-    margin-top: 67px;
-}
-#image-desc {
-    font-size: 10px;
-}
-#stakeholder-child {
-    display: inline;
-}
-
 
 .scroll-top {
     position: absolute;
@@ -213,9 +179,4 @@ input[type=submit]:hover {
     width: 100%;
     margin: auto;
     padding: 20px;
-}
-#dataset-img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

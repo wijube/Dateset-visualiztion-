@@ -1,7 +1,7 @@
 ---
 title: "Rate of Contraceptive Use in the US"
 author: "By: wijube"
-date: "2023-12-23"
+date: "2024-02-02"
 output: html_document
 ---
 
@@ -16,72 +16,117 @@ This page was generated with R Language as part of the Digital Health exam in ma
 ## This is the whole dataset as a Table
 
 ```{r message=FALSE, warning=FALSE}
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 knitr::kable(data) # Show the whole data as a table
 ```
 ## Filter Table by Year
 ### List all data for the year 2014
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse) # for ggplot
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 data2014 <- data %>%
     filter(Year == 2014) # Filter the data by year
 knitr::kable(data2014) # Show the data of the year 2014
 ```
-### Visualize data for the year 2014 in a US Map
+### Visualize data for the year 2014 in a bar plot
 ```{r message=FALSE, warning=FALSE}
+library(ggplot2)
 library(tidyverse) # for ggplot
-library(usmap) # to get maps
-library(ggeasy) # for the legend in the map
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2014 <- data %>%
     filter(Year == 2014) # Filter the data by year
-# Print the dataset in a US Map
-map_plot <- plot_usmap(data = data2014, values = "RoCU", labels = TRUE) + labs(title = "Rate of Contraceptive Use by State in 2014")+ easy_move_legend(to = c("right")) + scale_fill_continuous(low = "white", high = "red", name = "RoCU", limits = c(0,80))
-map_plot
+# Define color scale
+custom_colors <- c("#49f579", "orange", "red")
+
+# Create breaks and labels
+breaks <- c(0, 20, 40, max(data2014$RoCU))
+labels <- c("0-20", "20-40", "40+")
+
+# Create a bar plot
+bar_plot <- ggplot(data2014, aes(x = reorder(state, RoCU), y = RoCU, fill = cut(RoCU, breaks = breaks, labels = labels))) +
+  geom_bar(stat = "identity") +
+  labs(title = "Rate of Contraceptive Use by State in 2014",
+       x = "State",
+       y = "Rate of Contraceptive Use",
+       fill = "Rate of Contraceptive Use") +
+  scale_fill_manual(values = custom_colors) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+# Print the bar plot
+print(bar_plot)
 ```
 
 ### List all data for the year 2015
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse) # for ggplot
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 data2015 <- data %>%
     filter(Year == 2015) # Filter the data by year
 knitr::kable(data2015) # Show the data of the year 2015
 ```
-### Visualize data for the year 2015 in a US Map
+### Visualize data for the year 2015 in a bar plot
 ```{r message=FALSE, warning=FALSE}
+library(ggplot2)
 library(tidyverse) # for ggplot
-library(usmap) # to get maps
-library(ggeasy) # for the legend in the map
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2015 <- data %>%
-    filter(Year == 2015)  # Filter the data by year
-# Print the dataset in a US Map
-map_plot <- plot_usmap(data = data2015, values = "RoCU", labels = TRUE) + labs(title = "Rate of Contraceptive Use by State in 2015")+ easy_move_legend(to = c("right")) + scale_fill_continuous(low = "white", high = "red", name = "RoCU", limits = c(0,80))
-map_plot
+    filter(Year == 2015) # Filter the data by year
+# Define color scale
+custom_colors <- c("#49f579", "orange", "red")
+
+# Create breaks and labels
+breaks <- c(0, 20, 40, max(data2015$RoCU))
+labels <- c("0-20", "20-40", "40+")
+
+# Create a bar plot
+bar_plot <- ggplot(data2015, aes(x = reorder(state, RoCU), y = RoCU, fill = cut(RoCU, breaks = breaks, labels = labels))) +
+  geom_bar(stat = "identity") +
+  labs(title = "Rate of Contraceptive Use by State in 2015",
+       x = "State",
+       y = "Rate of Contraceptive Use",
+       fill = "Rate of Contraceptive Use") +
+  scale_fill_manual(values = custom_colors) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+# Print the bar plot
+print(bar_plot)
 ```
 
 ### List all data for the year 2016
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse) # for ggplot
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 data2016 <- data %>%
     filter(Year == 2016) # Filter the data by year
 knitr::kable(data2016) # Show the data of the year 2016
 ```
 ### Visualize data for the year 2016 in a US Map
 ```{r message=FALSE, warning=FALSE}
+library(ggplot2)
 library(tidyverse) # for ggplot
-library(usmap) # to get maps
-library(ggeasy) # for the legend in the map
-data <- read.csv("CSVofp-ccw-by-race-ethn_contra-type_age-group_14-16.csv") # Read CSV Data 
+data <- read.csv("CSV-dataset.csv") # Read CSV Data 
 names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2016 <- data %>%
     filter(Year == 2016) # Filter the data by year
-# Print the dataset in a US Map
-map_plot <- plot_usmap(data = data2016, values = "RoCU", labels = TRUE) + labs(title = "Rate of Contraceptive Use by State in 2016")+ easy_move_legend(to = c("right")) + scale_fill_continuous(low = "white", high = "red", name = "RoCU", limits = c(0,80))
-map_plot
+# Define color scale
+custom_colors <- c("#49f579", "orange", "red")
+
+# Create breaks and labels
+breaks <- c(0, 20, 40, max(data2016$RoCU))
+labels <- c("0-20", "20-40", "40+")
+
+# Create a bar plot
+bar_plot <- ggplot(data2016, aes(x = reorder(state, RoCU), y = RoCU, fill = cut(RoCU, breaks = breaks, labels = labels))) +
+  geom_bar(stat = "identity") +
+  labs(title = "Rate of Contraceptive Use by State in 2016",
+       x = "State",
+       y = "Rate of Contraceptive Use",
+       fill = "Rate of Contraceptive Use") +
+  scale_fill_manual(values = custom_colors) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+# Print the bar plot
+print(bar_plot)
 ```
