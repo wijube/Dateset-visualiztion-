@@ -28,7 +28,7 @@ data2014 <- data %>%
     filter(Year == 2014) # Filter the data by year
 knitr::kable(data2014) # Show the data of the year 2014
 ```
-### Visualize data for the year 2014 in a bar plot
+### Visualize data for the year 2014 in a bar chart
 ```{r message=FALSE, warning=FALSE}
 library(ggplot2)
 library(tidyverse) # for ggplot
@@ -37,7 +37,7 @@ names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2014 <- data %>%
     filter(Year == 2014) # Filter the data by year
 # Define color scale
-custom_colors <- c("#49f579", "orange", "red")
+custom_colors <- c("red", "orange", "#49f579")
 
 # Create breaks and labels
 breaks <- c(0, 20, 40, max(data2014$RoCU))
@@ -65,7 +65,7 @@ data2015 <- data %>%
     filter(Year == 2015) # Filter the data by year
 knitr::kable(data2015) # Show the data of the year 2015
 ```
-### Visualize data for the year 2015 in a bar plot
+### Visualize data for the year 2015 in a bar chart
 ```{r message=FALSE, warning=FALSE}
 library(ggplot2)
 library(tidyverse) # for ggplot
@@ -74,7 +74,7 @@ names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2015 <- data %>%
     filter(Year == 2015) # Filter the data by year
 # Define color scale
-custom_colors <- c("#49f579", "orange", "red")
+custom_colors <- c("red", "orange", "#49f579")
 
 # Create breaks and labels
 breaks <- c(0, 20, 40, max(data2015$RoCU))
@@ -102,7 +102,7 @@ data2016 <- data %>%
     filter(Year == 2016) # Filter the data by year
 knitr::kable(data2016) # Show the data of the year 2016
 ```
-### Visualize data for the year 2016 in a US Map
+### Visualize data for the year 2016 in a bar chart
 ```{r message=FALSE, warning=FALSE}
 library(ggplot2)
 library(tidyverse) # for ggplot
@@ -111,7 +111,7 @@ names(data)[names(data) == "State"] <- "state" # Clean dataset
 data2016 <- data %>%
     filter(Year == 2016) # Filter the data by year
 # Define color scale
-custom_colors <- c("#49f579", "orange", "red")
+custom_colors <- c("red", "orange", "#49f579")
 
 # Create breaks and labels
 breaks <- c(0, 20, 40, max(data2016$RoCU))
